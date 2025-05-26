@@ -3,7 +3,7 @@
 
 import express from "express";
 
-const app = express();
+export const app = express();
 const port = 3000;
 
 // Simple GET controller
@@ -11,6 +11,18 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello from Express + TypeScript!" });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+// Add /greet endpoint for testing
+app.get('/greet', (req, res) => {
+  const name = req.query.Name;
+  if (name) {
+    res.send(`Hello, ${name}!`);
+  } else {
+    res.send('Hello, stranger!');
+  }
 });
+
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
+}

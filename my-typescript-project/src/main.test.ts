@@ -1,14 +1,7 @@
 import request from 'supertest';
-import express from 'express';
-import mocha from 'mocha';
+import { app } from './main';
 import { expect } from 'chai';
-
-
-// Re-create the app logic for testing
-const app = express();
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from Express + TypeScript!" });
-});
+import 'mocha';
 
 describe('GET /', () => {
   it('should return hello message', async () => {
@@ -19,15 +12,6 @@ describe('GET /', () => {
 });
 
 // Additional tests for /greet endpoint as requested
-app.get('/greet', (req, res) => {
-  const name = req.query.Name;
-  if (name) {
-    res.send(`Hello, ${name}!`);
-  } else {
-    res.send('Hello, stranger!');
-  }
-});
-
 describe('GET /greet', () => {
   it('should greet Alice', async () => {
     const res = await request(app).get('/greet').query({ Name: 'Alice' });
