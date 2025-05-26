@@ -1,11 +1,6 @@
 import request from 'supertest';
 import express from 'express';
 
-{
-  "spec": "src/**/*.test.ts",
-  "timeout": 5000,
-  "reporter": "spec"
-}
 // Re-create the app logic for testing
 const app = express();
 app.get("/", (req, res) => {
