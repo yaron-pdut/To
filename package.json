@@ -1,7 +1,35 @@
 {
+  "name": "my-typescript-project",
+  "version": "1.0.0",
+  "description": "A simple TypeScript project",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "mocha -r ts-node/register 'src/**/*.test.ts'"
+  },
   "dependencies": {
     "express": "^5.1.0",
     "supertest": "^7.1.1",
     "typescript": "^5.8.3"
-  }
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.2",
+    "@types/express": "^5.0.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.15.21",
+    "@types/supertest": "^6.0.3",
+    "chai": "^5.2.0",
+    "express": "^5.1.0",
+    "mocha": "^11.5.0",
+    "supertest": "^7.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/my-typescript-project.git"
+  },
+  "author": "Your Name",
+  "license": "MIT"
 }
